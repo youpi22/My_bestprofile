@@ -1,0 +1,252 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-bold.woff2') format('woff2'),
+    url('../fonts/aeonik-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-regular.woff2') format('woff2'),
+    url('../fonts/aeonik-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('../fonts/aeonik-light.woff2') format('woff2'),
+    url('../fonts/aeonik-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apoc';
+  src: url('../fonts/apoc-bold.woff2') format('woff2'),
+    url('../fonts/apoc-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apoc';
+  src: url('../fonts/apoc-regular.woff2') format('woff2'),
+    url('../fonts/apoc-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apoc';
+  src: url('../fonts/apoc-light.woff2') format('woff2'),
+    url('../fonts/apoc-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: initial;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #120e16;
+  color: #f5f4f5;
+  font-style: normal;
+  font-weight: 400;
+  max-width: 100vw;
+  transition: background 0.6s ease-out, color 0.6s ease-out;
+}
+
+body.hide_header .header .header_container{
+  transform: translateY(-100%);
+}
+
+body.scrolled .header .header_container {
+  background: rgb(18 14 22 / 85%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.header .header_container .group.link span{
+  color: #f5f4f5
+}
+
+@media (min-width: 1024px) {
+  body.scrolled .header_container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  body.scrolled .header_logo svg {
+    height: 45px;
+  }
+}
+
+.font_apoc{
+  font-family: 'Apoc';
+}
+
+.font_aeonik{
+  font-family: 'Aeonik';
+}
+
+.progress {
+  height: 0.1875rem;
+}
+
+.progress .progress-bar {
+  height: 0.2rem;
+  transform-origin: left;
+  will-change: transform;
+  transform: scaleX(0);
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+a:hover{
+  cursor: none;
+}
+
+
+/* .outer-menu.menu-visible .hamburger > div {
+  transform: rotate(135deg);
+}
+.outer-menu.menu-visible .hamburger > div:before {
+  top: 0;
+  transform: rotate(90deg);
+}
+.outer-menu.menu-visible .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+  opacity: 0;
+} */
+.outer-menu.menu-visible .menu {
+  pointer-events: auto;
+  visibility: visible !important;
+  backdrop-filter: blur(0.625rem);
+  -webkit-backdrop-filter: blur(0.625rem);
+}
+.outer-menu.menu-visible .menu > div {
+  transform: scale(1);
+  transition-duration: 0.75s;
+}
+.outer-menu.menu-visible .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
+/* .outer-menu.menu-visible:hover .hamburger > div {
+  transform: rotate(225deg);
+} */
+.outer-menu .hamburger {
+  z-index: 1;
+  backface-visibility: hidden;
+}
+/* .outer-menu .hamburger > div {
+  height: 0.125rem;
+  transition: all 0.4s ease;
+  -webkit-box-pack: center;
+}
+.outer-menu .hamburger > div:before, .outer-menu .hamburger > div:after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -0.5rem;
+  height: 0.125rem;
+  background: inherit;
+  transition: all 0.4s ease;
+}
+.outer-menu .hamburger > div:after {
+  top: 0.5rem;
+} */
+.outer-menu .menu {
+  backface-visibility: hidden;
+  outline: 0.0625rem solid transparent;
+}
+.outer-menu .menu > div {
+  width: 250vw;
+  height: 250vw;
+  transform: scale(0);
+  will-change: transform;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .outer-menu .menu > div {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+.outer-menu .menu > div > div {
+  max-width: 90vw;
+  transition: opacity 0.4s ease;
+}
+.outer-menu .menu > div ul li a {
+  background: linear-gradient(90deg, #fff 0%, #fff 50% , #fdd600 51%, #fdd600 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.outer-menu .menu > div ul li a:hover, .outer-menu .menu > div ul li a:focus {
+  background-position: 100% 0;
+}
+
+
+.lg-heading{
+  background: linear-gradient(90deg,#fdd600,#b19703);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg,#ffffff40,#ffffff40 50%,#f5f4f5 50%,#f5f4f5);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f5f4f5; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f5f4f5; 
+}
